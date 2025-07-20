@@ -1,0 +1,47 @@
+<idea-plugin>
+    <id>com.github.son_daehyeon.spring-boot-domain-generator</id>
+
+    <name>Spring Boot Domain Generator</name>
+
+    <vendor email="sondaehyeon01@gmail.com" url="https://github.com/son-daehyeon">Son Daehyeon</vendor>
+
+    <description><![CDATA[
+    <h2>Spring Boot Domain Generator</h2>
+    <p>A specialized IntelliJ IDEA plugin designed exclusively for <a href="https://github.com/son-daehyeon/spring-boot-security-mysql-jwt-template">son-daehyeon/spring-boot-security-mysql-jwt-template</a>. Automatically generates domain package structure and implementation code that perfectly matches the template's architecture.</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+        <li><strong>One-Click Domain Generation</strong>: Automatically generate complete domain structure with Ctrl+Shift+S</li>
+        <li><strong>Basic CRUD Included</strong>: Auto-generates Controller, Service, Entity, Repository, DTO, Exception</li>
+        <li><strong>Template Specialized</strong>: Designed exclusively for <a href="https://github.com/son-daehyeon/spring-boot-security-mysql-jwt-template">son-daehyeon/spring-boot-security-mysql-jwt-template</a></li>
+    </ul>
+
+    <h3>Usage:</h3>
+    <p>This plugin only works with projects based on the Spring Boot Security MySQL JWT Template. Press Ctrl+Shift+S in the project's domain folder or right-click and select "New Spring Boot Domain".</p>
+
+    <h3>Requirements:</h3>
+    <p>Must use <a href="https://github.com/son-daehyeon/spring-boot-security-mysql-jwt-template">son-daehyeon/spring-boot-security-mysql-jwt-template</a> as base project</p>
+
+    <h3>Compatibility:</h3>
+    <p>Spring Boot 3.x, Java 11+, IntelliJ IDEA 2023.1+</p>
+]]></description>
+
+    <idea-version since-build="231" until-build="251.*"/>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <action id="GenerateDomainAction"
+                class="com.github.son_daehyeon.spring_boot_domain_generator.action.GenerateDomainAction"
+                text="New Spring Boot Domain"
+                description="Generate spring boot domain package structure and implementation code"
+                icon="AllIcons.General.InlineAddHover">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="NewGroup"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift S"/>
+        </action>
+    </actions>
+</idea-plugin>
